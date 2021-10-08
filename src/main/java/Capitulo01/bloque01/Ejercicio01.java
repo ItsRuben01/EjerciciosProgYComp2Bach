@@ -17,9 +17,11 @@ public class Ejercicio01 {
 			System.out.println("Introduzca un número doble:");
 			double numDouble = sc.nextDouble();
 	
-			System.out.println(numEntero);
-		    System.out.println(numFloat);
-			System.out.println(numDouble);
+			System.out.println(
+			  "El número es ==> " + numEntero      
+			+ " ____ El número es ==> " + numFloat     
+		    + " ____ El número es ==> " + numDouble);
+	
 
 	}
 
