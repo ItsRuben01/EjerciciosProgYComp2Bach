@@ -2,7 +2,7 @@ package Capitulo01.bloque01;
 
 import java.util.Scanner;
 
-public class Ejercicio01 {
+public class Ejercicio03 {
 
 	public static void main(String[] args) {
 		
@@ -11,17 +11,17 @@ public class Ejercicio01 {
 			System.out.println("Introduzca un número:");
 			int numEntero = sc.nextInt();
 			
+			
 			System.out.println("Introduzca un número flotante:");
 			float numFloat = sc.nextFloat();
 			
+			
 			System.out.println("Introduzca un número doble:");
 			double numDouble = sc.nextDouble();
-	
-			System.out.println(
-			  "El número es → " + numEntero      
-			+ " ____ El número es → " + numFloat     
-		    + " ____ El número es → " + numDouble);
-	
+			
+			double suma = numEntero + numFloat + numDouble;
+			System.out.println("La suma de los tres números es → " + suma);
+			
 
 	}
 

@@ -10,15 +10,15 @@ public class Ejercicio02 {
 	
 			System.out.println("Introduzca un número:");
 			int numEntero = sc.nextInt();
-			System.out.println("El número es ==> " + numEntero);
+			System.out.println("El número es → " + numEntero);
 			
 			System.out.println("Introduzca un número flotante:");
 			float numFloat = sc.nextFloat();
-			System.out.println("El número es ==>  " + numFloat);
+			System.out.println("El número es →  " + numFloat);
 			
 			System.out.println("Introduzca un número doble:");
 			double numDouble = sc.nextDouble();
-			System.out.println("El número es ==>  " + numDouble);
+			System.out.println("El número es →  " + numDouble);
 
 
 	}
