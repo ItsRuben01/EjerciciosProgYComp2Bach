@@ -20,7 +20,7 @@ public class Ejercicio04 {
 			double numDouble = sc.nextDouble();
 			
 			double suma = (numEntero + numFloat + numDouble)/3;
-			System.out.println("La suma de los tres números es → " + suma);
+			System.out.println("La media de los tres números es → " + suma);
 			
 
 	}
