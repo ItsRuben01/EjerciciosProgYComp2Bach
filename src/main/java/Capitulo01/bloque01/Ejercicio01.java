@@ -15,9 +15,12 @@ public class Ejercicio01 {
 			float numFloat = sc.nextFloat();
 			
 			System.out.println("Introduzca un número doble:");
-			double numdouble = sc.nextDouble();
+			double numDouble = sc.nextDouble();
 	
-			
+			System.out.println(numEntero);
+		    System.out.println(numFloat);
+			System.out.println(numDouble);
+
 	}
 
 }
