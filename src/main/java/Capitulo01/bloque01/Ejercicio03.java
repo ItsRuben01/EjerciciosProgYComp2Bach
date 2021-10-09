@@ -6,7 +6,7 @@ public class Ejercicio03 {
 
 	public static void main(String[] args) {
 		
-			Scanner sc = new Scanner(System.in); // Lee el teclado
+			Scanner sc = new Scanner(System.in); 
 	
 			System.out.println("Introduzca un número:");
 			int numEntero = sc.nextInt();
@@ -24,6 +24,6 @@ public class Ejercicio03 {
 			
 
 	}
-
+ 
 }
  
