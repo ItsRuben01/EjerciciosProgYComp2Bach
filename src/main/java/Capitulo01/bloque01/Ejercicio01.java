@@ -21,7 +21,7 @@ public class Ejercicio01 {
 			  "El número es → " + numEntero      
 			+ " ____ El número es → " + numFloat     
 		    + " ____ El número es → " + numDouble);
-	
+	 
 
 	}
 
