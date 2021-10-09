@@ -22,7 +22,7 @@ public class Ejercicio01 {
 			+ " ____ El número es → " + numFloat     
 		    + " ____ El número es → " + numDouble);
 	 
-
+  
 	}
 
 }

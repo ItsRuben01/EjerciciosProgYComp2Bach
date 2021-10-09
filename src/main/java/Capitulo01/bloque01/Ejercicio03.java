@@ -22,7 +22,7 @@ public class Ejercicio03 {
 			double suma = (numEntero + numFloat + numDouble);
 			System.out.println("La suma de los tres números es → " + suma);
 			
-
+ 
 	}
  
 }
