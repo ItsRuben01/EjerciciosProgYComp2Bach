@@ -16,7 +16,7 @@ public class Ejercicio05_alternativa {
     System.out.println("Introduzca el segundo número:");
     double segundo = sc.nextDouble();
     
-    System.out.println("Las variables sin modificar son → " + primero +" ; " + segundo); // Antes del cambio
+    System.out.println("Las variables sin modificar son → " + primero +" ¦¦ " + segundo); // Antes del cambio
     
     double auxiliar = 5; // variable escondida
     double auxiliar2 = -3; // 2 variable escondida
@@ -24,7 +24,7 @@ public class Ejercicio05_alternativa {
     double mod = auxiliar + primero;
     double mod2 = auxiliar2 + segundo;
     
-    System.out.println("Las variables modificadas son → " + mod + " ; " + mod2); 
+    System.out.println("Las variables modificadas son → " + mod + " ¦¦ " + mod2); 
     
     
     

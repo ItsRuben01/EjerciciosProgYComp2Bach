@@ -16,10 +16,10 @@ public class Ejercicio05 {
     System.out.println("Introduzca el segundo número:");
     double segundo = sc.nextDouble();
     
-    System.out.println("Las variables sin modificar son → " + primero +" ; " + segundo); // Antes del cambio
+    System.out.println("Las variables sin modificar son → " + primero +" ¦¦ " + segundo); // Antes del cambio
    
     
-    System.out.println("Las variables modificadas son → " + segundo + " ; " + primero); 
+    System.out.println("Las variables modificadas son → " + segundo + " ¦¦ " + primero); 
     
     
     
