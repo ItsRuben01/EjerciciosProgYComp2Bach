@@ -20,22 +20,22 @@ public class Ejercicio06_calculocuotamensualprestamo {
 	System.out.println("Introduzca el capital");
     capital = sc.nextFloat();
     
-    System.out.println("Este es el capital" + capital);
+    System.out.println("Este es el capital" + "  "  + capital);
 	
     System.out.println("Introduzca los meses");
     meses = sc.nextInt();
     
-    System.out.println("Esto son los meses" + meses);
+    System.out.println("Esto son los meses" + "  " + meses);
 	
     System.out.println("Introduzca el euribor");
     euribor = sc.nextFloat();
     
-    System.out.println("Este es el euribor" + euribor);
+    System.out.println("Este es el euribor" + "  " + euribor);
 	
     System.out.println("Introduzca el diferencial");
     diferencial = sc.nextFloat();
     
-    System.out.println("Este es el diferencial" + diferencial);
+    System.out.println("Este es el diferencial" + "  "  + diferencial);
     
 	// Comenzamos los cálculos
     
@@ -44,7 +44,7 @@ public class Ejercicio06_calculocuotamensualprestamo {
     aux = (float)Math.pow( 1 + interesmensual, meses);
   
     cuotamensual = capital *(interesmensual * aux)/(aux - 1 );
-    System.out.println("Debes de pagar " + cuotamensual + "€");
+    System.out.println("Debes de pagar " + "  "  + cuotamensual + "€");
     
 }
 
