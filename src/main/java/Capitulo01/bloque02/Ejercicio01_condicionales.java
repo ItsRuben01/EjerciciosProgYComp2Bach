@@ -4,7 +4,7 @@ public class Ejercicio01_condicionales {
 
 	public static void main(String[] args) {
 	
-    int nota = 11;
+    int nota = 8;
     
   switch (nota) {
   

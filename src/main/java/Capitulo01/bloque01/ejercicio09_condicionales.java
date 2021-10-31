@@ -6,24 +6,28 @@ public class ejercicio09_condicionales {
 
 	public static void main(String[] args) {
 	
-    int numero1, division;
-    float numero2;
+  
+    float num1;
+    float ec1, ec2;
+    float valor = 2;
+    
 	Scanner sc = new Scanner(System.in);
 	
 	System.out.println("Introduzca un número: ");
-	numero1 = sc.nextInt();
-    division = ;
+	num1 = sc.nextFloat();
+    
+	ec1 = (num1 % valor);
+	ec2 = (num1 / valor);
 	
-	if (numero1 < numero2) {
+	System.out.println("El número es: ");
+	if (ec1 == 0) {
 
-		System.out.println("El número es PAR => " + numero1 );
-		
-	
+		System.out.println("PAR => " + ec1);
 	}
 	else {
 	
-		if (numero2 < numero1) {
-	    System.out.println("El número es IMPAR => " + numero2);
+		if (ec2 > 0) {
+	    System.out.println("IMPAR => " + ec2);
 		}
 	}
 	}
