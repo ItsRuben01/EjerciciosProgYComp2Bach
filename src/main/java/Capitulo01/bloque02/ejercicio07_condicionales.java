@@ -22,9 +22,11 @@ public class ejercicio07_condicionales {
 	else {
 		if(numero1 > numero2);
 		System.out.println("El número más grande es =>" + numero1);
+	}	
+	else {	
+		System.out.println("Los dos números son iguales"); // Mirar en casa
 			
-	}
-	
+			}
 		
 	}
 

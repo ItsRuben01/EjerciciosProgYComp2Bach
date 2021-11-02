@@ -1,10 +1,15 @@
 package Capitulo01.bloque02;
 
+import java.util.Scanner;
+
 public class Ejercicio01_condicionales {
 
 	public static void main(String[] args) {
 	
-    int nota = 8;
+	Scanner sc = new Scanner(System.in);
+	System.out.println("Introduzca una nota: ");
+    int nota;
+    nota = sc.nextInt();
     
   switch (nota) {
   
