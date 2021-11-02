@@ -1,8 +1,8 @@
-package Capitulo01.bloque02;
+package Capitulo02_condicionales.bloque02;
 
 import java.util.Scanner;
 
-public class Ejercicio02_calculadora {
+public class Ejercicio03_condicionalescalculadora2 {
 
 	public static void main(String[] args) {
 	
