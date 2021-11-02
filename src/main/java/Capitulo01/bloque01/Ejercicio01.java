@@ -19,8 +19,8 @@ public class Ejercicio01 {
 	
 			System.out.println(
 			  "El número es → " + numEntero      
-			+ " ____ El número es → " + numFloat     
-		    + " ____ El número es → " + numDouble);
+			+ "      El número es → " + numFloat     
+		    + "      El número es → " + numDouble);
 	 
   
 	}
