@@ -46,24 +46,55 @@ System.out.println("Volviendo al menú...");
 }
 else {
 System.out.println("Pagando...");	
-System.out.println("Usted ha pagado = " + mT);
-System.out.println("Su vuelta de dinero es = " + ( mT - pan)); 
+System.out.println("Usted ha pagado = " + pan + " monedas");
+System.out.println("Su vuelta de dinero es = " + (16*m100 + m25) + " monedas"); 
 
 }
 	break;
 case 2:
 	System.out.println("Usted va a comprar una ◆ BOTELLA DE AGUA ◆ son "+ agua + " monedas");	
-	System.out.println("¿Desea pagar?");
+	System.out.println("¿Desea pagar? 1 = SI 2 = NO");
+	opcion1 = sc.nextInt();
 
+if (opcion1 == 2) {
+System.out.println("Volviendo al menú...");	
+}
+else {
+System.out.println("Pagando...");	
+System.out.println("Usted ha pagado = " + agua + " monedas");
+System.out.println("Su vuelta de dinero es = " + (17*m100 + m50) + " monedas"); 
+
+}
 	break;
 case 3:
 	System.out.println("Usted va a comprar ◆ FRUTA VARIADA ◆ son "+ fruta + " monedas");	
-	System.out.println("¿Desea pagar?");
+	System.out.println("¿Desea pagar? 1 = SI 2 = NO");
+	opcion1 = sc.nextInt();
 
+if (opcion1 == 2) {
+System.out.println("Volviendo al menú...");	
+}
+else {
+System.out.println("Pagando...");	
+System.out.println("Usted ha pagado = " + fruta + " monedas");
+System.out.println("Su vuelta de dinero es = " + (18*m100) + " monedas"); 
+
+}
 	break;
 case 4:
 	System.out.println("Usted va a comprar ◆ CARNE ◆ son "+ carne + " monedas");	
-	System.out.println("¿Desea pagar?");
+	System.out.println("¿Desea pagar? 1 = SI 2 = NO");
+	opcion1 = sc.nextInt();
+
+if (opcion1 == 2) {
+System.out.println("Volviendo al menú...");	
+}
+else {
+System.out.println("Pagando...");	
+System.out.println("Usted ha pagado = " + carne + " monedas");
+System.out.println("Su vuelta de dinero es = " + (18*m100 + m50 + m25) + " monedas"); 
+
+}
 	break;
 
 default:
