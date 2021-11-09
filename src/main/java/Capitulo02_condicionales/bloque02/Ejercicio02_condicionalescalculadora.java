@@ -35,14 +35,14 @@ public class Ejercicio02_condicionalescalculadora {
     
     switch (opcion) {
     
-    case 1: 
-    	System.out.println("La raíz es: " + Math.pow(num1, 1/num2));
+    case 1: // Raíz
+    	System.out.println("La raíz es: " + Math.pow(num1, 1f/num2));
     	break;
-    case 2: 
+    case 2: // Potencia
     	System.out.println("La potencia es: " + Math.pow(num1, num2) );
     	break;
-    case 3: 
-    	System.out.println("El módulo de división es: " + num1 % num2);
+    case 3: // Módulo de la división
+    	System.out.println("El módulo de división es: " + (num1 % num2));
     	break;
     }	
 	}

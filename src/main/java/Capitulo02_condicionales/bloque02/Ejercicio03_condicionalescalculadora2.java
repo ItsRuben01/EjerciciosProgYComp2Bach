@@ -22,14 +22,9 @@ public class Ejercicio03_condicionalescalculadora2 {
     System.out.println("Eliga una opción = ");
     opcion = sc.nextInt();
 
-	if (0 == opcion) {
-	System.out.println("Saliendo de la aplicación... ↻");
-		
-	}
-	else {
-	
     switch (opcion) {
     case 0:
+    	System.out.println("Saliendo de la aplicación... ↻");
     	break;
     	
     case 1: 
@@ -86,5 +81,5 @@ public class Ejercicio03_condicionalescalculadora2 {
     }	
 	}
 		
-	}
+	
 }
