@@ -23,7 +23,7 @@ System.out.println("Introduzca la cantidad de números que desee: ");
 		System.out.println("El número más grande es =>" + num2 );	
 	}
 	else {
-		if(num1 > num2) {
+		if (num1 > num2) {
 		System.out.println("El número más grande es =>" + num1);
 	}	
 		else {
