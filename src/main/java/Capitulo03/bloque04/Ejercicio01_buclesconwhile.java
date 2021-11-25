@@ -5,29 +5,33 @@ import java.util.Scanner;
 public class Ejercicio01_buclesconwhile {
 
 	public static void main(String[] args) {
-	
-		Scanner sc = new Scanner(System.in);
-		int num = 0, suma = 0;
-		float media = 0;
-		//Pido números denro del bucle
 		
-		for (int i = 0; num != 0 ;i++) {
-		 //Pido el número
-		System.out.println("Introduzca un número: ");
+		Scanner sc = new Scanner(System.in);
+		int num, i;
+		boolean numeroEsPrimo = true;
+		
+		System.out.println("Dame el número: ");
 		num = sc.nextInt();
 		
-		suma += num;
-		
-		if  (num!= 0) {
-		media = suma/(float)(i + 1);
-				
+		i = 2;
+		while (i < num) {
+			if (num % i == 0) {
+				numeroEsPrimo = false;
+			}
+			i++;
 		}
-		System.out.println("La media de dichos números son: "+ media);
+
+		// Cuando acabe el bucle for, tendre una variable booleana que me
+		// indicará si el número es primo o no lo es
+		if (numeroEsPrimo == true) {
+			System.out.println("El número " + num + " es primo");
+		}
+		else {
+			System.out.println("El número " + num + " es compuesto");
 		}
 	}
 
 }
-
 
 
 
