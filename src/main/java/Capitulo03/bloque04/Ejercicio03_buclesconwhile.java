@@ -22,6 +22,7 @@ public class Ejercicio03_buclesconwhile {
 				tabla = false;
 			}
 			i++;
+			
 		}
 		if (tabla == true) {
 			 System.out.println(num + "x"+ i + "==" + (num*i));
