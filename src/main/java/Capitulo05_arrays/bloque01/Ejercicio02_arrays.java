@@ -13,21 +13,17 @@ public class Ejercicio02_arrays {
 		for (i = 0; i < array.length; i++) {
 			array[i] = (int) Math.round(Math.random() * 100);
 		
-		for (i = 0; i < array.length-i-1; i++) {
-			ultimo = array[0];
+		for (i = 0; i<array.length; i++) {
 			
-			System.out.print(array[i] + " ");
-			if (array[i+1] > array[i]) {
+			System.out.print("\nEn orden es: " + array[i] + " ");
+		}
+		for (i = array.length-1 ; i >= 0; i--) {
 			
-			primero = array[i+1];	
-		    ultimo = array[i];
-			}
+			System.out.print("\nEn orden inverso es: " + array[i] + " ");
 		}
-		
 		}
-	
-	 System.out.print("\nEn orden inverso es: " + primero + ultimo);
-		
 	}
-
 }
+	
+
+

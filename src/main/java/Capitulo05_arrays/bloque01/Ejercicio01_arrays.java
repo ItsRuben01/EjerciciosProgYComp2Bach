@@ -5,7 +5,7 @@ public class Ejercicio01_arrays {
 	public static void main(String[] args) {
 		
 		int array[] = new int[150];
-		int suma = 0,media = 0,mayor = 0,menor = 0;
+		float suma = 0,media = 0,mayor = 0,menor = 0;
 	
 		for (int i = 0; i < array.length; i++) {
 			array[i] = (int) Math.round(Math.random() * 100);
@@ -20,7 +20,7 @@ public class Ejercicio01_arrays {
 		}
 		
 		for (int i = 0; i < array.length; i++) {
-			media = (suma / 150);
+			media = suma /(float)150;
 		}
 		
 		for (int i = 0; i < array.length; i++) {
