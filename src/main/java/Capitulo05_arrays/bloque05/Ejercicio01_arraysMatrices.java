@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Ejercicio01_arraysMatrices {
 
 	public static void main(String[] args) {
-	int o;
+	int o = 0;
 	int array[] = new int [] {};
 	int matriz [][] = new int[][] {{1,0,0},
 								   {0,2,0},
@@ -17,18 +17,15 @@ public class Ejercicio01_arraysMatrices {
 		}
 	}
 	
-	
-	
-	
-	
 	/**
 	 *  MOSTRAR EN PANTALLA 
 	 */
-	
-	
-	
-	
-	
+	esMatrizTriangular(matriz);
+	System.out.println(MatrizEsDiagonal(matriz));
+	TransformarMatriz(matriz, o, array);
+	System.out.println("La simetria de la matriz es: " + haysimetria(matriz));
+	matrizcontraria(matriz);
+	Eliminarnum(o, o, matriz);
 	
 	}
 	
@@ -74,7 +71,7 @@ public class Ejercicio01_arraysMatrices {
 	 * @param 
 	 */
 	
-	public static void TrasnformarMatriz (int matriz[][], int array[], int o) {
+	public static void TransformarMatriz (int matriz[][], int o, int array[]) {
 		o = 0;
 		for (int i = 0; i < matriz.length; i++) {
 			for (int j = 0; j < matriz[i].length; j++) {
@@ -125,7 +122,7 @@ public class Ejercicio01_arraysMatrices {
 	 * @param colum
 	 * @param matriz
 	 */
-	public static void Eliminarnumraiz (int fila, int colum, int matriz[][]) {
+	public static void Eliminarnum (int fila, int colum, int matriz[][]) {
 		Scanner sc = new Scanner (System.in);	
 		System.out.println("Elija la fila :");
 		fila = sc.nextInt() - 1;
