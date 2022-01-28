@@ -32,6 +32,11 @@ public class Mineral {
 	public void setColorMineral(String colorMineral) {
 		this.colorMineral = colorMineral;
 	}
+
+	@Override
+	public String toString() {
+		return "Mineral [DurezaMineral=" + DurezaMineral + ", colorMineral=" + colorMineral + "]";
+	}
 	
 	
 	
