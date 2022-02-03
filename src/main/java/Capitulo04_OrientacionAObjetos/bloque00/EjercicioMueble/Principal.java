@@ -9,29 +9,51 @@ public class Principal {
 	public static void main(String[] args) {
 
 	int opcion;
-
 	Scanner sc = new Scanner (System.in);
+	
+	/**
+	 * 	Inicio Do y While
+	 */
 	
 	do {
 	
+		opcion = menu();
 		 System.out.println("Eliga una opción: ");
 		 opcion = sc.nextInt();
 
 		switch (opcion) {
 		case 1: 
 			
-		Articulo Mueble = new Articulo();
-		Mueble.setCodigo(opcion);
-		Mueble.setNombre(null);
-		Mueble.setPrecio(opcion);;
-		Mueble.toString();
+		Armario armario = new Armario();
 		
+		System.out.println("Introduzca el color del mueble: ");
+		armario.setMueblecolor(sc.next());
+		
+		System.out.println("Introduzca el tipo de madera del mueble: ");
+		armario.setTipoMadera(sc.next());
+		
+		System.out.println("Introduzca el número de Puertas del mueble: ");
+		armario.setNumeroPuertas(sc.nextInt());
+		
+		System.out.println("Nuevo Armario creado: " + armario.toString());
+		
+		break;
 		case 2:
-		Articulo Silla = new Articulo();
-		Silla.setCodigo(451641);
-		Silla.setNombre("Lata de atún |Calvo|");
-		Silla.setPrecio(1);
-		Silla.toString();
+			
+		Silla Silla = new Silla();
+		System.out.println("Introduzca el color de la silla: ");
+		Silla.setTipoMadera(sc.next());
+		
+		System.out.println("Introduzca el tipo de madera de la silla: ");
+		Silla.setTipoMadera(sc.next());
+		
+		System.out.println("Introduzca el numero de patas de la silla: ");
+		Silla.setNumeroPatas(sc.nextInt());
+		
+		System.out.println("Nueva silla creada" + Silla.toString());
+		
+		break;
+		
 		}
  	
 		
@@ -39,18 +61,24 @@ public class Principal {
 	
 	System.out.println("Saliendo del system... ");
 		
-		
+	/**
+	 *  Menú de la consola
+	 * 	
+	 */
 	}
 	
-	void menu() {
-		 System.out.println("\nMenú");
-		 System.out.println("\n\t0- Salir");		 
-		 System.out.println("\n\t1- Art. Comestible");		
-		 System.out.println("\n\t2- Art. de Limpieza");
-		 
+	public static int menu() {
+		int opcion;
+		Scanner sc = new Scanner(System.in);
 		
+		String Menu = "\n\n\tMENÚ" +
+				"\n0.- Salir" + 
+				"\n1.- Crear Armario" + 
+				"\n2.- Crear Silla";
 		
-		
+		System.out.println(Menu);
+		opcion = sc.nextInt();
+		return opcion;	
 	}
 
 }

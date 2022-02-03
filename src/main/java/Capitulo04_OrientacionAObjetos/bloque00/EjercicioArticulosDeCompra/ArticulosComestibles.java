@@ -2,27 +2,31 @@ package Capitulo04_OrientacionAObjetos.bloque00.EjercicioArticulosDeCompra;
 
 public class ArticulosComestibles extends Articulo {
 
+private String FechaCad;
+
+public ArticulosComestibles(String fechaCad,int codigo, float precio, String nombre) {
+	super(codigo, precio, nombre);
+	this.FechaCad = fechaCad;
 	
-private boolean EsElArticuloIgnifugo;
-
-public ArticulosComestibles(boolean esElArticuloIgnifugo, int codigo, float precio, String nombre) {
-	super(codigo,precio,nombre);
-	this.EsElArticuloIgnifugo = esElArticuloIgnifugo;
 }
 
-public boolean isEsElArticuloIgnifugo() {
-	return EsElArticuloIgnifugo;
+public ArticulosComestibles() {
 }
 
-public void setEsElArticuloIgnifugo(boolean esElArticuloIgnifugo) {
-	EsElArticuloIgnifugo = esElArticuloIgnifugo;
+public String getFechaCad() {
+	return FechaCad;
+}
+
+public void setFechaCad(String fechaCad) {
+	FechaCad = fechaCad;
 }
 
 @Override
 public String toString() {
-	return "ArticulosComestibles [EsElArticuloIgnifugo=" + EsElArticuloIgnifugo + ", codigo=" + codigo + ", precio="
-			+ precio + ", Nombre=" + Nombre + "]";
+	return "ArticulosLimpieza [FechaCad=" + FechaCad + ", codigo=" + codigo + ", precio=" + precio + ", Nombre="
+			+ Nombre + "]";
 }
+
 
 
 }
