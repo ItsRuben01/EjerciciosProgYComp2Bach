@@ -20,7 +20,7 @@ public class MiPropioCanvas extends Canvas{
 		// Círculos
 		
 		g.setColor(Color.GRAY);
-		g.fillOval(WIDTH/2, HEIGHT/2, 200, 300);
+		g.fillOval(WIDTH/2, HEIGHT/2, 200, 300); 
 		
 		g.setColor(Color.BLUE);
 		g.fillOval(WIDTH/2, HEIGHT/2, 400, 150);
