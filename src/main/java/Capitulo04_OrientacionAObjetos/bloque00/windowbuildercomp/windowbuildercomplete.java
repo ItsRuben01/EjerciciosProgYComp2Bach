@@ -101,10 +101,10 @@ public class windowbuildercomplete {
 		panel.add(lblNewLabel_2, gbc_lblNewLabel_2);
 		
 		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Bit", ""}));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Bit", "Dogecoin ", "Cardano", "LiteCoin"}));
 		comboBox.setToolTipText("");
 		GridBagConstraints gbc_comboBox = new GridBagConstraints();
-		gbc_comboBox.insets = new Insets(0, 0, 5, 0);
+		gbc_comboBox.insets = new Insets(0, 0, 5, 10);
 		gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
 		gbc_comboBox.gridx = 1;
 		gbc_comboBox.gridy = 2;
@@ -120,7 +120,7 @@ public class windowbuildercomplete {
 		
 		passwordField = new JPasswordField();
 		GridBagConstraints gbc_passwordField = new GridBagConstraints();
-		gbc_passwordField.insets = new Insets(0, 0, 5, 0);
+		gbc_passwordField.insets = new Insets(0, 0, 5, 10);
 		gbc_passwordField.fill = GridBagConstraints.HORIZONTAL;
 		gbc_passwordField.gridx = 1;
 		gbc_passwordField.gridy = 3;
