@@ -37,6 +37,7 @@ public class GestionAlumnos {
 	private JButton btnNewButton_3;
 	private JButton btnNewButton_4;
 	private JButton btnNewButton_5;
+	private JButton btnNewButton_6;
 
 	/**
 	 * Launch the application.
@@ -213,6 +214,15 @@ public class GestionAlumnos {
 		panel.add(btnNewButton_5);
 		btnNewButton_4.setIcon(new ImageIcon(GestionAlumnos.class.getResource("/tutorialJava/capitulo7_InterfazGrafica/res/guardar.png")));
 		panel.add(btnNewButton_4);
+		
+		btnNewButton_6 = new JButton("");
+		btnNewButton_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			eliminarregistro();
+			}
+		});
+		btnNewButton_6.setIcon(new ImageIcon(GestionAlumnos.class.getResource("/tutorialJava/capitulo7_InterfazGrafica/res/eliminar.png")));
+		panel.add(btnNewButton_6);
 	}
 
 	/**
@@ -367,15 +377,31 @@ private void mostrarsiguientealumno() {
 	 */
 
 private void guardar() {
+if(jtfid.getText().equals("0")) {
+insertar();		
+}
+else {
+modificar();	
+}
+/**
+ *  Insertar
+ */
+}
+private void insertar() {
 	
 	try {
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection conexion = (Connection) DriverManager.getConnection ("jdbc:mysql://localhost/alumnos?serverTimezone=UTC","root", "Abcdefgh.1");
 
 		Statement s = (Statement) conexion.createStatement(); 
+		int id = siguienteIDdispo();
+		int registromod = s.executeUpdate ("Insert into alumnos.alumno values ("+id+",'"+ jtfnombre.getText()+"','" + jtfapellidos.getText() +"','" 
+			+ jtfnif.getText()+"')");
+
 		
-		int registromod = s.executeUpdate ("UPDATE alumnos.alumno set nombre = '" + jtfnombre.getText() + "', apellidos = '"+ jtfapellidos.getText() +"', nif = '"+ jtfnif.getText() +"' where id = " + jtfid.getText());
+		
 		if (registromod == 1) {
+		jtfid.setText("" + id);
 		JOptionPane.showMessageDialog(null, "Guardado el registro");
 				
 		}
@@ -396,15 +422,116 @@ private void guardar() {
 	
 }
 /**
+ * 
+ * @return
+ */
+
+private int siguienteIDdispo() {
+
+	try {
+
+		Class.forName("com.mysql.cj.jdbc.Driver");
+	   
+		Connection conexion = (Connection) DriverManager.getConnection ("jdbc:mysql://localhost/alumnos?serverTimezone=UTC","root", "Abcdefgh.1");
+	   
+		Statement s = (Statement) conexion.createStatement(); 
+		
+		ResultSet rs = s.executeQuery ("select max(id) from alumnos.alumno");
+	   
+		if (rs.next() == true) { 
+			return rs.getInt(1) + 1;
+		}
+	}
+	
+	catch (ClassNotFoundException ex) {
+		System.out.println("Imposible acceder al driver Mysql");
+		ex.printStackTrace();
+	}
+	catch (SQLException ex) {
+		System.out.println("Error en la ejecución SQL: " + ex.getMessage());
+		ex.printStackTrace();
+	}
+return -1;
+	
+}
+	
+/**
+ *  Modificar
+ */
+private void modificar() {
+
+	try {
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		Connection conexion = (Connection) DriverManager.getConnection ("jdbc:mysql://localhost/alumnos?serverTimezone=UTC","root", "Abcdefgh.1");
+
+		Statement s = (Statement) conexion.createStatement(); 
+		
+		int registromod = s.executeUpdate ("UPDATE alumnos.alumno set nombre = '" + jtfnombre.getText() + "', apellidos = '"+ jtfapellidos.getText() +"', nif = '"+ jtfnif.getText() +"' where id = " + jtfid.getText());
+		if (registromod == 1) {
+		JOptionPane.showMessageDialog(null, "Guardado correctamente");
+				
+		}
+		else {
+		JOptionPane.showMessageDialog(null, "Error al ejecutar");
+		}
+		s.close();
+		conexion.close();
+	}
+	catch (ClassNotFoundException ex) {
+		System.out.println("Imposible acceder al driver Mysql");
+		ex.printStackTrace();
+	}
+	catch (SQLException ex) {
+		System.out.println("Error en la ejecución SQL: " + ex.getMessage());
+		ex.printStackTrace();
+	}
+	
+	
+	
+}
+/**
  *  Nuevo Registro
  */
 private void nuevoregistro() {
+	this.jtfid.setText("0");
+	this.jtfnombre.setText("");
+	this.jtfapellidos.setText("");
+	this.jtfnif.setText("");	
+}
+/**
+ *  Eliminar registro
+ */
+private void eliminarregistro() {
+	try {
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		Connection conexion = (Connection) DriverManager.getConnection ("jdbc:mysql://localhost/alumnos?serverTimezone=UTC","root", "Abcdefgh.1");
+
+		Statement s = (Statement) conexion.createStatement(); 
+		
+		int registromod = s.executeUpdate ("delete from alumnos.alumno" +" where id = " + jtfid.getText());
+		if (registromod == 1) {
+		JOptionPane.showMessageDialog(null, "Eliminado correctamente");
+		mostrarPrimerAlumno();		
+		}
+		else {
+		JOptionPane.showMessageDialog(null, "Error al eliminar");
+		}
+		s.close();
+		conexion.close();
+	}
+	catch (ClassNotFoundException ex) {
+		System.out.println("Imposible acceder al driver Mysql");
+		ex.printStackTrace();
+	}
+	catch (SQLException ex) {
+		System.out.println("Error en la ejecución SQL: " + ex.getMessage());
+		ex.printStackTrace();
+	}
+	
+	
+		
+	
 	
 }
-
 }
-
-
-
-
 
