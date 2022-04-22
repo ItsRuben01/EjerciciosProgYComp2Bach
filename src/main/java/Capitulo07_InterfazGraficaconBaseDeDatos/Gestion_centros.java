@@ -5,6 +5,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JTextField;
@@ -14,17 +16,22 @@ import java.awt.FlowLayout;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.awt.event.ActionEvent;
 
 public class Gestion_centros {
 
 	private JFrame frame;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
+	private JTextField jtfid;
+	private JTextField jtftipo;
+	private JTextField jtfdeno;
+	private JTextField jtfdireccion;
+	private JTextField jtflocalidad;
+	private JTextField jtfprovincia;
 	private JPanel panel;
 	private JButton btnNewButton;
 	private JButton btnNewButton_1;
@@ -55,6 +62,7 @@ public class Gestion_centros {
 	 */
 	public Gestion_centros() {
 		initialize();
+		PrimerCentro();
 	}
 
 	/**
@@ -88,14 +96,14 @@ public class Gestion_centros {
 		gbc_lblNewLabel_1.gridy = 1;
 		frame.getContentPane().add(lblNewLabel_1, gbc_lblNewLabel_1);
 		
-		textField = new JTextField();
-		GridBagConstraints gbc_textField = new GridBagConstraints();
-		gbc_textField.insets = new Insets(0, 0, 5, 0);
-		gbc_textField.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField.gridx = 1;
-		gbc_textField.gridy = 1;
-		frame.getContentPane().add(textField, gbc_textField);
-		textField.setColumns(10);
+		jtfid = new JTextField();
+		GridBagConstraints gbc_jtfid = new GridBagConstraints();
+		gbc_jtfid.insets = new Insets(0, 0, 5, 0);
+		gbc_jtfid.fill = GridBagConstraints.HORIZONTAL;
+		gbc_jtfid.gridx = 1;
+		gbc_jtfid.gridy = 1;
+		frame.getContentPane().add(jtfid, gbc_jtfid);
+		jtfid.setColumns(10);
 		
 		JLabel lblNewLabel_2 = new JLabel("Tipo:");
 		GridBagConstraints gbc_lblNewLabel_2 = new GridBagConstraints();
@@ -105,14 +113,14 @@ public class Gestion_centros {
 		gbc_lblNewLabel_2.gridy = 2;
 		frame.getContentPane().add(lblNewLabel_2, gbc_lblNewLabel_2);
 		
-		textField_1 = new JTextField();
-		GridBagConstraints gbc_textField_1 = new GridBagConstraints();
-		gbc_textField_1.insets = new Insets(0, 0, 5, 0);
-		gbc_textField_1.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_1.gridx = 1;
-		gbc_textField_1.gridy = 2;
-		frame.getContentPane().add(textField_1, gbc_textField_1);
-		textField_1.setColumns(10);
+		jtftipo = new JTextField();
+		GridBagConstraints gbc_jtftipo = new GridBagConstraints();
+		gbc_jtftipo.insets = new Insets(0, 0, 5, 0);
+		gbc_jtftipo.fill = GridBagConstraints.HORIZONTAL;
+		gbc_jtftipo.gridx = 1;
+		gbc_jtftipo.gridy = 2;
+		frame.getContentPane().add(jtftipo, gbc_jtftipo);
+		jtftipo.setColumns(10);
 		
 		JLabel lblNewLabel_3 = new JLabel("Denominación:");
 		GridBagConstraints gbc_lblNewLabel_3 = new GridBagConstraints();
@@ -122,14 +130,14 @@ public class Gestion_centros {
 		gbc_lblNewLabel_3.gridy = 3;
 		frame.getContentPane().add(lblNewLabel_3, gbc_lblNewLabel_3);
 		
-		textField_2 = new JTextField();
-		GridBagConstraints gbc_textField_2 = new GridBagConstraints();
-		gbc_textField_2.insets = new Insets(0, 0, 5, 0);
-		gbc_textField_2.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_2.gridx = 1;
-		gbc_textField_2.gridy = 3;
-		frame.getContentPane().add(textField_2, gbc_textField_2);
-		textField_2.setColumns(10);
+		jtfdeno = new JTextField();
+		GridBagConstraints gbc_jtfdeno = new GridBagConstraints();
+		gbc_jtfdeno.insets = new Insets(0, 0, 5, 0);
+		gbc_jtfdeno.fill = GridBagConstraints.HORIZONTAL;
+		gbc_jtfdeno.gridx = 1;
+		gbc_jtfdeno.gridy = 3;
+		frame.getContentPane().add(jtfdeno, gbc_jtfdeno);
+		jtfdeno.setColumns(10);
 		
 		JLabel lblNewLabel_4 = new JLabel("Dirección:");
 		GridBagConstraints gbc_lblNewLabel_4 = new GridBagConstraints();
@@ -139,14 +147,14 @@ public class Gestion_centros {
 		gbc_lblNewLabel_4.gridy = 4;
 		frame.getContentPane().add(lblNewLabel_4, gbc_lblNewLabel_4);
 		
-		textField_3 = new JTextField();
-		GridBagConstraints gbc_textField_3 = new GridBagConstraints();
-		gbc_textField_3.insets = new Insets(0, 0, 5, 0);
-		gbc_textField_3.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_3.gridx = 1;
-		gbc_textField_3.gridy = 4;
-		frame.getContentPane().add(textField_3, gbc_textField_3);
-		textField_3.setColumns(10);
+		jtfdireccion = new JTextField();
+		GridBagConstraints gbc_jtfdireccion = new GridBagConstraints();
+		gbc_jtfdireccion.insets = new Insets(0, 0, 5, 0);
+		gbc_jtfdireccion.fill = GridBagConstraints.HORIZONTAL;
+		gbc_jtfdireccion.gridx = 1;
+		gbc_jtfdireccion.gridy = 4;
+		frame.getContentPane().add(jtfdireccion, gbc_jtfdireccion);
+		jtfdireccion.setColumns(10);
 		
 		JLabel lblNewLabel_5 = new JLabel("Localidad:");
 		GridBagConstraints gbc_lblNewLabel_5 = new GridBagConstraints();
@@ -156,14 +164,14 @@ public class Gestion_centros {
 		gbc_lblNewLabel_5.gridy = 5;
 		frame.getContentPane().add(lblNewLabel_5, gbc_lblNewLabel_5);
 		
-		textField_4 = new JTextField();
-		GridBagConstraints gbc_textField_4 = new GridBagConstraints();
-		gbc_textField_4.insets = new Insets(0, 0, 5, 0);
-		gbc_textField_4.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_4.gridx = 1;
-		gbc_textField_4.gridy = 5;
-		frame.getContentPane().add(textField_4, gbc_textField_4);
-		textField_4.setColumns(10);
+		jtflocalidad = new JTextField();
+		GridBagConstraints gbc_jtflocalidad = new GridBagConstraints();
+		gbc_jtflocalidad.insets = new Insets(0, 0, 5, 0);
+		gbc_jtflocalidad.fill = GridBagConstraints.HORIZONTAL;
+		gbc_jtflocalidad.gridx = 1;
+		gbc_jtflocalidad.gridy = 5;
+		frame.getContentPane().add(jtflocalidad, gbc_jtflocalidad);
+		jtflocalidad.setColumns(10);
 		
 		JLabel lblNewLabel_6 = new JLabel("Provincia:");
 		GridBagConstraints gbc_lblNewLabel_6 = new GridBagConstraints();
@@ -173,14 +181,14 @@ public class Gestion_centros {
 		gbc_lblNewLabel_6.gridy = 6;
 		frame.getContentPane().add(lblNewLabel_6, gbc_lblNewLabel_6);
 		
-		textField_5 = new JTextField();
-		GridBagConstraints gbc_textField_5 = new GridBagConstraints();
-		gbc_textField_5.insets = new Insets(0, 0, 5, 0);
-		gbc_textField_5.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_5.gridx = 1;
-		gbc_textField_5.gridy = 6;
-		frame.getContentPane().add(textField_5, gbc_textField_5);
-		textField_5.setColumns(10);
+		jtfprovincia = new JTextField();
+		GridBagConstraints gbc_jtfprovincia = new GridBagConstraints();
+		gbc_jtfprovincia.insets = new Insets(0, 0, 5, 0);
+		gbc_jtfprovincia.fill = GridBagConstraints.HORIZONTAL;
+		gbc_jtfprovincia.gridx = 1;
+		gbc_jtfprovincia.gridy = 6;
+		frame.getContentPane().add(jtfprovincia, gbc_jtfprovincia);
+		jtfprovincia.setColumns(10);
 		
 		panel = new JPanel();
 		GridBagConstraints gbc_panel = new GridBagConstraints();
@@ -196,7 +204,7 @@ public class Gestion_centros {
 		btnNewButton.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
-				Primercentro();
+				PrimerCentro();
 			}
 			
 		});
@@ -206,7 +214,7 @@ public class Gestion_centros {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {	
 				AnteriorCentro();
-			
+							
 			}
 		});
 		panel.add(btnNewButton_1);
@@ -255,14 +263,278 @@ public class Gestion_centros {
 		});
 		btnNewButton_6.setIcon(new ImageIcon(Gestion_centros.class.getResource("/tutorialJava/capitulo7_InterfazGrafica/res/eliminar.png")));
 		panel.add(btnNewButton_6);
-		
-//		private vo PrimerCentro() {}
-//		private void
-	//	private void
-		//private void
-		//private void
-		//private void
-		//private void
 	}
+	/**
+	 * 	 PRIMER CENTRO
+	 */
+	private void PrimerCentro() {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection conexion = (Connection) DriverManager.getConnection ("jdbc:mysql://localhost/alumnos?serverTimezone=UTC","root", "Abcdefgh.1");
+
+			Statement s = (Statement) conexion.createStatement(); 
+			
+			ResultSet rs = s.executeQuery ("select * from centro_educativo.centro order by id limit 1");
+		   
+			// Navegación del objeto ResultSet
+			if (rs.next() == true) { 
+				jtfid.setText(rs.getString("id"));
+				jtftipo.setText(rs.getString("tipo"));
+				jtfdeno.setText(rs.getString("denominacion"));
+				jtfdireccion.setText(rs.getString("direccion"));
+				jtflocalidad.setText(rs.getString("poblacion"));
+				jtfprovincia.setText(rs.getString("provincia"));
+
+			}
+			// Cierre de los elementos
+			rs.close();
+			s.close();
+			conexion.close();
+		}
+		catch (ClassNotFoundException ex) {
+			System.out.println("Imposible acceder al driver Mysql");
+			ex.printStackTrace();
+		}
+		catch (SQLException ex) {
+			System.out.println("Error en la ejecución SQL: " + ex.getMessage());
+			ex.printStackTrace();
+		}
+		
+		
+
+	}
+
+	/**
+	 *  ULTIMO CENTRO
+	 */
+	
+	private void UltimoCentro() {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection conexion = (Connection) DriverManager.getConnection ("jdbc:mysql://localhost/alumnos?serverTimezone=UTC","root", "Abcdefgh.1");
+
+			Statement s = (Statement) conexion.createStatement(); 
+			
+			ResultSet rs = s.executeQuery ("select * from centro_educativo.centro order by id desc limit 1");
+		   
+			// Navegación del objeto ResultSet
+			if (rs.next() == true) { 
+				jtfid.setText(rs.getString("id"));
+				jtftipo.setText(rs.getString("tipo"));
+				jtfdeno.setText(rs.getString("denominacion"));
+				jtfdireccion.setText(rs.getString("direccion"));
+				jtflocalidad.setText(rs.getString("poblacion"));
+				jtfprovincia.setText(rs.getString("provincia"));
+
+			}
+			// Cierre de los elementos
+			rs.close();
+			s.close();
+			conexion.close();
+		}
+		catch (ClassNotFoundException ex) {
+			System.out.println("Imposible acceder al driver Mysql");
+			ex.printStackTrace();
+		}
+		catch (SQLException ex) {
+			System.out.println("Error en la ejecución SQL: " + ex.getMessage());
+			ex.printStackTrace();
+		}
+		
+		
+
+	}
+	
+	
+	/**
+	 *  ANTERIOR CENTRO
+	 */
+	
+	private void AnteriorCentro() {
+
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection conexion = (Connection) DriverManager.getConnection ("jdbc:mysql://localhost/alumnos?serverTimezone=UTC","root", "Abcdefgh.1");
+
+			Statement s = (Statement) conexion.createStatement(); 
+			
+			ResultSet rs = s.executeQuery ("select * from centro_educativo.centro where id <" + jtfid.getText()+ " order by id desc limit 1");
+		   
+			// Navegación del objeto ResultSet
+			if (rs.next() == true) { 
+				jtfid.setText(rs.getString("id"));
+				jtftipo.setText(rs.getString("tipo"));
+				jtfdeno.setText(rs.getString("denominacion"));
+				jtfdireccion.setText(rs.getString("direccion"));
+				jtflocalidad.setText(rs.getString("poblacion"));
+				jtfprovincia.setText(rs.getString("provincia"));
+
+			}
+			// Cierre de los elementos
+			rs.close();
+			s.close();
+			conexion.close();
+		}
+		catch (ClassNotFoundException ex) {
+			System.out.println("Imposible acceder al driver Mysql");
+			ex.printStackTrace();
+		}
+		catch (SQLException ex) {
+			System.out.println("Error en la ejecución SQL: " + ex.getMessage());
+			ex.printStackTrace();
+		}
+		
+		
+
+	}
+
+	/**
+	 *  SIGUIENTE CENTRO
+	 */
+
+	private void SiguienteCentro() {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection conexion = (Connection) DriverManager.getConnection ("jdbc:mysql://localhost/alumnos?serverTimezone=UTC","root", "Abcdefgh.1");
+
+			Statement s = (Statement) conexion.createStatement(); 
+			
+			ResultSet rs = s.executeQuery ("select * from centro_educativo.centro where id > " + jtfid.getText()+ " limit 1");
+		   
+			// Navegación del objeto ResultSet
+			if (rs.next() == true) { 
+				jtfid.setText(rs.getString("id"));
+				jtftipo.setText(rs.getString("tipo"));
+				jtfdeno.setText(rs.getString("denominacion"));
+				jtfdireccion.setText(rs.getString("direccion"));
+				jtflocalidad.setText(rs.getString("poblacion"));
+				jtfprovincia.setText(rs.getString("provincia"));
+
+			}
+			// Cierre de los elementos
+			rs.close();
+			s.close();
+			conexion.close();
+		}
+		catch (ClassNotFoundException ex) {
+			System.out.println("Imposible acceder al driver Mysql");
+			ex.printStackTrace();
+		}
+		catch (SQLException ex) {
+			System.out.println("Error en la ejecución SQL: " + ex.getMessage());
+			ex.printStackTrace();
+		}
+		
+		
+
+	}
+
+
+	/**
+	 *  ELIMINAR CENTRO
+	 */
+	private void EliminarCentro() {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection conexion = (Connection) DriverManager.getConnection ("jdbc:mysql://localhost/alumnos?serverTimezone=UTC","root", "Abcdefgh.1");
+
+			Statement s = (Statement) conexion.createStatement(); 
+			
+			ResultSet rs = s.executeQuery ("DELETE * from centro_educativo.centro");
+		   
+			// Navegación del objeto ResultSet
+			if (rs.next() == true) { 
+				jtfid.setText(rs.getString("id"));
+				jtftipo.setText(rs.getString("tipo"));
+				jtfdeno.setText(rs.getString("denominacion"));
+				jtfdireccion.setText(rs.getString("direccion"));
+				jtflocalidad.setText(rs.getString("poblacion"));
+				jtfprovincia.setText(rs.getString("provincia"));
+
+			}
+			// Cierre de los elementos
+			rs.close();
+			s.close();
+			conexion.close();
+		}
+		catch (ClassNotFoundException ex) {
+			System.out.println("Imposible acceder al driver Mysql");
+			ex.printStackTrace();
+		}
+		catch (SQLException ex) {
+			System.out.println("Error en la ejecución SQL: " + ex.getMessage());
+			ex.printStackTrace();
+		}
+		
+		
+
+	}
+
+
+	/**
+	 *  GUARDAR CENTRO
+	 */
+	
+	
+	private void GuardarCentro() {
+		if(jtfid.getText().equals("0")) {
+			insertar();		
+			}
+			else {
+			modificar();	
+			}
+
+	}
+		
+	private void insertar() {
+		
+	}
+
+	private void modificar() {
+
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection conexion = (Connection) DriverManager.getConnection ("jdbc:mysql://localhost/alumnos?serverTimezone=UTC","root", "Abcdefgh.1");
+
+			Statement s = (Statement) conexion.createStatement(); 
+			
+			int registromod = s.executeUpdate ("UPDATE alumnos.alumno set tipo = '" + jtftipo.getText() + "', denominacion = '"+ jtfdeno.getText() +"', direccion = '"+ jtfdireccion.getText() +"', poblacion = '"+ jtflocalidad.getText() +"', provincia = '"+ jtfprovincia.getText() +"' where id = " + jtfid.getText());
+			if (registromod == 1) {
+			JOptionPane.showMessageDialog(null, "Guardado correctamente");
+					
+			}
+			else {
+			JOptionPane.showMessageDialog(null, "Error al ejecutar");
+			}
+			s.close();
+			conexion.close();
+		}
+		catch (ClassNotFoundException ex) {
+			System.out.println("Imposible acceder al driver Mysql");
+			ex.printStackTrace();
+		}
+		catch (SQLException ex) {
+			System.out.println("Error en la ejecución SQL: " + ex.getMessage());
+			ex.printStackTrace();
+		}
+		
+				
+	}
+
+	/**
+	 *  CREAR NUEVO CENTRO	
+	 */
+
+		private void NuevoCentro() {
+			this.jtfid.setText("0");
+			this.jtftipo.setText("");
+			this.jtfdeno.setText("");
+			this.jtfdireccion.setText("");
+			this.jtflocalidad.setText("");
+			this.jtfprovincia.setText("");
+			
+		
+		}
+
 
 }
