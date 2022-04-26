@@ -270,7 +270,7 @@ public class Gestion_centros {
 	private void PrimerCentro() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection conexion = (Connection) DriverManager.getConnection ("jdbc:mysql://localhost/alumnos?serverTimezone=UTC","root", "Abcdefgh.1");
+			Connection conexion = (Connection) DriverManager.getConnection ("jdbc:mysql://localhost/centro_educativo?serverTimezone=UTC","root", "Abcdefgh.1");
 
 			Statement s = (Statement) conexion.createStatement(); 
 			
@@ -311,7 +311,7 @@ public class Gestion_centros {
 	private void UltimoCentro() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection conexion = (Connection) DriverManager.getConnection ("jdbc:mysql://localhost/alumnos?serverTimezone=UTC","root", "Abcdefgh.1");
+			Connection conexion = (Connection) DriverManager.getConnection ("jdbc:mysql://localhost/centro_educativo?serverTimezone=UTC","root", "Abcdefgh.1");
 
 			Statement s = (Statement) conexion.createStatement(); 
 			
@@ -354,7 +354,7 @@ public class Gestion_centros {
 
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection conexion = (Connection) DriverManager.getConnection ("jdbc:mysql://localhost/alumnos?serverTimezone=UTC","root", "Abcdefgh.1");
+			Connection conexion = (Connection) DriverManager.getConnection ("jdbc:mysql://localhost/centro_educativo?serverTimezone=UTC","root", "Abcdefgh.1");
 
 			Statement s = (Statement) conexion.createStatement(); 
 			
@@ -395,7 +395,7 @@ public class Gestion_centros {
 	private void SiguienteCentro() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection conexion = (Connection) DriverManager.getConnection ("jdbc:mysql://localhost/alumnos?serverTimezone=UTC","root", "Abcdefgh.1");
+			Connection conexion = (Connection) DriverManager.getConnection ("jdbc:mysql://localhost/centro_educativo?serverTimezone=UTC","root", "Abcdefgh.1");
 
 			Statement s = (Statement) conexion.createStatement(); 
 			
@@ -436,24 +436,24 @@ public class Gestion_centros {
 	private void EliminarCentro() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection conexion = (Connection) DriverManager.getConnection ("jdbc:mysql://localhost/alumnos?serverTimezone=UTC","root", "Abcdefgh.1");
+			Connection conexion = (Connection) DriverManager.getConnection ("jdbc:mysql://localhost/centro_educativo?serverTimezone=UTC","root", "Abcdefgh.1");
 
 			Statement s = (Statement) conexion.createStatement(); 
 			
-			ResultSet rs = s.executeQuery ("DELETE * from centro_educativo.centro");
+			int rsmod = s.executeUpdate ("DELETE from centro_educativo.centro"+" where id = " + jtfid.getText());
 		   
 			// Navegación del objeto ResultSet
-			if (rs.next() == true) { 
-				jtfid.setText(rs.getString("id"));
-				jtftipo.setText(rs.getString("tipo"));
-				jtfdeno.setText(rs.getString("denominacion"));
-				jtfdireccion.setText(rs.getString("direccion"));
-				jtflocalidad.setText(rs.getString("poblacion"));
-				jtfprovincia.setText(rs.getString("provincia"));
-
-			}
+			if (rsmod == 1) {
+				JOptionPane.showMessageDialog(null, "Eliminado correctamente");
+				PrimerCentro();		
+				}
+				else {
+				JOptionPane.showMessageDialog(null, "Error al eliminar");
+				}
+				s.close();
+				conexion.close();
+			
 			// Cierre de los elementos
-			rs.close();
 			s.close();
 			conexion.close();
 		}
@@ -487,14 +487,75 @@ public class Gestion_centros {
 	}
 		
 	private void insertar() {
+
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection conexion = (Connection) DriverManager.getConnection ("jdbc:mysql://localhost/centro_educativo?serverTimezone=UTC","root", "Abcdefgh.1");
+
+			Statement s = (Statement) conexion.createStatement(); 
+			int id = siguienteIDdispo();
+			int registromod = s.executeUpdate ("Insert into centro_educativo.centro values ("+id+",'"+ jtftipo.getText()+"','" + jtfdeno.getText() +"','" 
+					+ jtfdireccion.getText() +"','"+ jtflocalidad.getText() +"','"+ jtfprovincia.getText()+"')");
+
+			
+			
+			if (registromod == 1) {
+			jtfid.setText("" + id);
+			JOptionPane.showMessageDialog(null, "Guardado el registro");
+					
+			}
+			else {
+			JOptionPane.showMessageDialog(null, "NO se ha guardado el registro");
+			}
+			s.close();
+			conexion.close();
+		}
+		catch (ClassNotFoundException ex) {
+			System.out.println("Imposible acceder al driver Mysql");
+			ex.printStackTrace();
+		}
+		catch (SQLException ex) {
+			System.out.println("Error en la ejecución SQL: " + ex.getMessage());
+			ex.printStackTrace();
+		}
 		
 	}
+	
 
+private int siguienteIDdispo() {
+
+	try {
+
+		Class.forName("com.mysql.cj.jdbc.Driver");
+	   
+		Connection conexion = (Connection) DriverManager.getConnection ("jdbc:mysql://localhost/alumnos?serverTimezone=UTC","root", "Abcdefgh.1");
+	   
+		Statement s = (Statement) conexion.createStatement(); 
+		
+		ResultSet rs = s.executeQuery ("select max(id) from alumnos.alumno");
+	   
+		if (rs.next() == true) { 
+			return rs.getInt(1) + 1;
+		}
+	}
+	
+	catch (ClassNotFoundException ex) {
+		System.out.println("Imposible acceder al driver Mysql");
+		ex.printStackTrace();
+	}
+	catch (SQLException ex) {
+		System.out.println("Error en la ejecución SQL: " + ex.getMessage());
+		ex.printStackTrace();
+	}
+return -1;
+	
+}
+	
 	private void modificar() {
 
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection conexion = (Connection) DriverManager.getConnection ("jdbc:mysql://localhost/alumnos?serverTimezone=UTC","root", "Abcdefgh.1");
+			Connection conexion = (Connection) DriverManager.getConnection ("jdbc:mysql://localhost/centro_educativo?serverTimezone=UTC","root", "Abcdefgh.1");
 
 			Statement s = (Statement) conexion.createStatement(); 
 			
