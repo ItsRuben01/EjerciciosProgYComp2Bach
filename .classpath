@@ -9,5 +9,6 @@
 	<classpathentry kind="lib" path="/ProgramacionYComputacion2Bach-2021-22/librerias/Driver_MySQL_Connector_J/mysql-connector-java-8.0.19.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="/ProgramacionYComputacion2Bach-2021-22/librerias/AplicacionesWeb/servlet-api.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
