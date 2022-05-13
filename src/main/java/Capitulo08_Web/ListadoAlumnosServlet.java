@@ -38,10 +38,9 @@ public class ListadoAlumnosServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		for (int i = 0; i < 10; i++) {
-			response.getWriter().append(i + (" "));
+		
+	
 
-}
 	//PrimerAlumno();
 	TodosAlumnos();
 	response.getWriter().append(this.respuesta);
