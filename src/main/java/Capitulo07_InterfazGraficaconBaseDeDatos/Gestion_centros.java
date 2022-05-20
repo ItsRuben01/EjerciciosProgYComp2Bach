@@ -528,11 +528,11 @@ private int siguienteIDdispo() {
 
 		Class.forName("com.mysql.cj.jdbc.Driver");
 	   
-		Connection conexion = (Connection) DriverManager.getConnection ("jdbc:mysql://localhost/alumnos?serverTimezone=UTC","root", "Abcdefgh.1");
+		Connection conexion = (Connection) DriverManager.getConnection ("jdbc:mysql://localhost/centro_educativo?serverTimezone=UTC","root", "Abcdefgh.1");
 	   
 		Statement s = (Statement) conexion.createStatement(); 
 		
-		ResultSet rs = s.executeQuery ("select max(id) from alumnos.alumno");
+		ResultSet rs = s.executeQuery ("select max(id) from centro_educativo.centro");
 	   
 		if (rs.next() == true) { 
 			return rs.getInt(1) + 1;
@@ -559,7 +559,7 @@ return -1;
 
 			Statement s = (Statement) conexion.createStatement(); 
 			
-			int registromod = s.executeUpdate ("UPDATE alumnos.alumno set tipo = '" + jtftipo.getText() + "', denominacion = '"+ jtfdeno.getText() +"', direccion = '"+ jtfdireccion.getText() +"', poblacion = '"+ jtflocalidad.getText() +"', provincia = '"+ jtfprovincia.getText() +"' where id = " + jtfid.getText());
+			int registromod = s.executeUpdate ("UPDATE centro_educativo.centro set tipo = '" + jtftipo.getText() + "', denominacion = '"+ jtfdeno.getText() +"', direccion = '"+ jtfdireccion.getText() +"', poblacion = '"+ jtflocalidad.getText() +"', provincia = '"+ jtfprovincia.getText() +"' where id = " + jtfid.getText());
 			if (registromod == 1) {
 			JOptionPane.showMessageDialog(null, "Guardado correctamente");
 					
